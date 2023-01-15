@@ -1,4 +1,4 @@
-import {TextField, Alert } from '@mui/material';
+import { TextField, Alert } from '@mui/material';
 import React, { useState } from 'react';
 
 const MakeAdmin = () => {
@@ -10,7 +10,7 @@ const MakeAdmin = () => {
     }
     const handleAdminSubmit = e => {
         const user = { email };
-        fetch('https://murmuring-anchorage-32548.herokuapp.com/users/admin', {
+        fetch('https://shopistic-server.vercel.app/users/admin', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -30,15 +30,15 @@ const MakeAdmin = () => {
         <div>
             <h2 className="text-center mb-5 header-text">Make An Admin</h2>
             <div className="text-center">
-            <form onSubmit={handleAdminSubmit}>
-                <TextField
-                    sx={{ width: '50%' }}
-                    label="Email"
-                    type="email"
-                    onBlur={handleOnBlur}
-                    variant="standard" />
-                <button type="submit" className="service-btn ms-3 btn">Make Admin</button>
-            </form>
+                <form onSubmit={handleAdminSubmit}>
+                    <TextField
+                        sx={{ width: '50%' }}
+                        label="Email"
+                        type="email"
+                        onBlur={handleOnBlur}
+                        variant="standard" />
+                    <button type="submit" className="service-btn ms-3 btn">Make Admin</button>
+                </form>
             </div>
             {success && <Alert severity="success">Made Admin successfully!</Alert>}
         </div>

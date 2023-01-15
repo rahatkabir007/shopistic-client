@@ -10,7 +10,7 @@ const MyOrder = () => {
     const { user } = useAuth({});
 
     useEffect(() => {
-        fetch(`https://murmuring-anchorage-32548.herokuapp.com/ordersInfo/${user?.email}`)
+        fetch(`https://shopistic-server.vercel.app/ordersInfo/${user?.email}`)
             .then(res => res.json())
             .then(result => setMyOrders(result));
     }, [user.email]);
@@ -18,7 +18,7 @@ const MyOrder = () => {
     const handleDelete = id => {
         const confirm = window.confirm('Are you sure to delete booking?');
         if (confirm) {
-            fetch(`https://murmuring-anchorage-32548.herokuapp.com/ordersInfo/${id}`, {
+            fetch(`https://shopistic-server.vercel.app/ordersInfo/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

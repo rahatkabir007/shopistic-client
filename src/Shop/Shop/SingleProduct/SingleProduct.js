@@ -20,7 +20,7 @@ const Orders = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('https://murmuring-anchorage-32548.herokuapp.com/products')
+    fetch('https://shopistic-server.vercel.app/products')
       .then(res => res.json())
       .then(data => setOrders(data))
   }, [])
@@ -36,7 +36,7 @@ const Orders = () => {
     data.status = "Pending";
     data.quantity = quantity.toString();
     data.price = singleOrder?.price * quantity;
-    fetch('https://murmuring-anchorage-32548.herokuapp.com/ordersInfo', {
+    fetch('https://shopistic-server.vercel.app/ordersInfo', {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),

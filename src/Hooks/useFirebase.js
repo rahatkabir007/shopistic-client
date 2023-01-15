@@ -35,7 +35,7 @@ const useFirebase = () => {
 
                 //saving user to database after registration
 
-                  saveUser(email, name, 'POST')
+                saveUser(email, name, 'POST')
 
                 //user name send to firebase
                 updateProfile(auth.currentUser, {
@@ -49,7 +49,7 @@ const useFirebase = () => {
                 });
 
                 const destination = '/home'
-               navigate(destination);
+                navigate(destination);
                 setSuccess('User Regestration Succesfull!')
                 setAuthError('');
                 setPassError('');
@@ -111,25 +111,25 @@ const useFirebase = () => {
 
     //if user registers once he will be saved in database
 
-        const saveUser = (email, displayName, method) => {
+    const saveUser = (email, displayName, method) => {
         const user = { email, displayName };
-         fetch('https://murmuring-anchorage-32548.herokuapp.com/users', {
-             method: method,
-             headers: {
-                 'content-type': 'application/json'
-             },
-             body: JSON.stringify(user)
-         })
-     }
+        fetch('https://shopistic-server.vercel.app/users', {
+            method: method,
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+    }
 
     // //assigning admin functionality
 
-      useEffect(() => {
-        fetch(`https://murmuring-anchorage-32548.herokuapp.com/users/${user.email}`)
-             .then(res => res.json())
+    useEffect(() => {
+        fetch(`https://shopistic-server.vercel.app/users/${user.email}`)
+            .then(res => res.json())
             .then(data => setAdmin(data.admin))
-     }, [user.email])
-    
+    }, [user.email])
+
 
     return {
         user,
